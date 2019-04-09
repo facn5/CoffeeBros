@@ -1,6 +1,6 @@
-const databaseConnection = require('../database/db_connection.js');
+const databaseConnection = require('../db_connection.js');
 
-const insertquery = sql,args,cb => {
+const insertquery = (sql,args,cb) => {
   databaseConnection.query(
     s,
     args,
