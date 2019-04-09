@@ -1,6 +1,5 @@
 html {
   background-color: #e2e2e2;
-
 }
 
 body {
@@ -43,30 +42,55 @@ select, input {
   margin: 0 auto;
 }
 
-header, fieldset, .submit, .ratedContainer, .reviewsContainer, footer {
+header, fieldset, .submit, .ratedContainer, .reviewsContainer, .localPick, footer {
   grid-column: span 2;
 }
 
 fieldset, .submit {
   margin: .3rem;
 }
-.reviewsContainer, .reviews  {
+
+.reviewsContainer {
+  border: .1rem solid #0e3b43;
+  margin: .5rem;
+}
+
+.reviews  {
   border: .1rem solid #0e3b43;
   margin: .3rem;
 }
-.ratedFlex {
+.ratedGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
 .ratedContainer {
   border: .1rem solid #0e3b43;
-  margin: .3rem;
+  margin: .5rem;
 }
+
 .topRated {
   grid-column: span 1;
   border: .1rem solid #0e3b43;
   margin: .3rem;
+}
+
+.localPick {
+  border: .1rem solid #0e3b43;
+  margin: .5rem;
+}
+
+.localGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.localInfo {
+  grid-column: span 1;
+}
+
+#templocalPic {
+  height: 8rem;
+  width: auto;
 }
 
 footer {
@@ -74,8 +98,8 @@ footer {
 }
 
 @media (min-width: 800px) {
-  .container (grid-template-columns: 1fr 1fr 1fr;
+  .grid-container {grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:  "header fieldset submit"
                           "ratedContainer submitReviews reviewsContainer"
-                          "footer footer footer"  )
+                          "footer footer footer"  }
 }
