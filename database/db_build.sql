@@ -1,0 +1,34 @@
+BEGIN;
+DROP TABLE IF EXISTS Places, Review ,address,pictures;
+
+CREATE TABLE IF NOT EXISTS Places (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  rating INTEGER NOT NULL,
+  address TEXT NOT NULL,
+  google_map TEXT
+);
+
+CREATE TABLE IF NOT EXISTS Review (
+  id SERIAL PRIMARY KEY,
+  place_id TINYINT NOT NULL,
+  comment TEXT NOT NULL,
+  rating INTEGER NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS address (
+  id SERIAL PRIMARY KEY,
+  city VARCHAR(60) NOT NULL,
+  street TEXT NOT NULL,
+  );
+
+
+CREATE TABLE IF NOT EXISTS pictures (
+  id SERIAL PRIMARY KEY,
+  place_id TINYINT NOT NULL,
+  pictureURL TEXT NOT NULL,
+  );
+
+
+
+COMMIT;
