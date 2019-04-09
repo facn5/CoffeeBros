@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="./style.css">
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa|Cormorant" rel="stylesheet" type="text/css">
+  <!-- <link rel="icon" href="favicon.ico"> -->
+  <meta name="description" content="find the best places to chill">
+  <meta name="keywords" content="coffee bros best coffee bars restaurants shisha nearby close nazareth galilee">
+  <meta name="author" content="Tamer and John">
+  <title>CoffeeBros</title>
+
+</head>
+
+<body>
+  <noscript>
+    Enable JavaScript for a good time
+  </noscript>
+
+  <div class="grid-container">
+
+    <header class="grid-element">
+      <img id="logoPic" src="https://user-images.githubusercontent.com/32282170/55808583-08a08f80-5aed-11e9-9aa9-85f6255f8def.png" alt="CoffeeBros logo">
+      <!-- <h1>CoffeeBros</h1> -->
+    </header>
+
+    <!-- input to search for places -->
+    <fieldset class="grid-element">
+      <legend>wet your whistle</legend>
+
+      <select class="" name="city">
+        <option value="Nazareth">Nazareth</option>
+        <option value="Haifa">Haifa</option>
+        <option value="Tiberias">Tiberias</option>
+      </select>
+
+      <input type="text" name="place" value="place" required maxlength="40">
+
+      <input class="submit" type="submit" name="submit" value="find your place">
+
+    </fieldset>
+
+    <div class="ratedContainer">
+      <h2>Top Rated</h2>
+      <div class="ratedGrid">
+        <div class="topRated rated1"><img id="tempPic" src="https://user-images.githubusercontent.com/32282170/55808583-08a08f80-5aed-11e9-9aa9-85f6255f8def.png" alt="CoffeeBros logo"></div>
+        <div class="topRated rated2"><img id="tempPic" src="https://user-images.githubusercontent.com/32282170/55808583-08a08f80-5aed-11e9-9aa9-85f6255f8def.png" alt="CoffeeBros logo"></div>
+        <div class="topRated rated3"><img id="tempPic" src="https://user-images.githubusercontent.com/32282170/55808583-08a08f80-5aed-11e9-9aa9-85f6255f8def.png" alt="CoffeeBros logo"></div>
+        <div class="topRated rated4"><img id="tempPic" src="https://user-images.githubusercontent.com/32282170/55808583-08a08f80-5aed-11e9-9aa9-85f6255f8def.png" alt="CoffeeBros logo"></div>
+      </div>
+    </div>
+
+    <div class="localPick">
+      <h2>Local Pick</h2>
+      <div class="localGrid">
+        <div class="localInfo name">name</div>
+        <div class="localInfo rating">rating</div>
+        <div class="localInfo address">address</div>
+        <div class="localInfo contact">contact</div>
+      </div>
+      <img id="templocalPic" src="https://user-images.githubusercontent.com/32282170/55808583-08a08f80-5aed-11e9-9aa9-85f6255f8def.png" alt="CoffeeBros logo">
+    </div>
+
+    <fieldset class="userReviewContainer grid-element">
+      <legend>Add your own review of [name]</legend>
+
+      <select class="rating" name="rating" required>
+        <option value="5">5</option>
+        <option value="4">4</option>
+        <option value="3">3</option>
+        <option value="2">2</option>
+        <option value="1">1</option>
+      </select>
+
+      <div class="userReview">
+        <textarea type="text" name="place" value="place" required rows=10rem cols=40rem></textarea>
+
+        <input class="submit" type="submit" name="submit" value="submit your review">
+
+      </div>
+    </fieldset>
+
+    <div class="reviewsContainer">
+      <h2>Recent Reviews</h2>
+      <div class="reviews review1">Lorem ipsum dolor sit amet, consectetur adipisicin g elit. Nobis possimus quis nisi rerum nost rum vero exercitationem necessitatibus cupiditate omnis, ab maiores, incidunt excepturi labore distinctio quae porro
+        quas sit blanditiis!</div>
+      <div class="reviews review2">Lorem ipsum dolor sit amet, consectetur adipisicin g elit. Nobis possimus quis nisi rerum nost rum vero exercitationem necessitatibus cupiditate omnis, ab maiores, incidunt excepturi labore distinctio quae porro
+        quas sit blanditiis!</div>
+      <div class="reviews review3">Lorem ipsum dolor sit amet, consectetur adipisicin g elit. Nobis possimus quis nisi rerum nost rum vero exercitationem necessitatibus cupiditate omnis, ab maiores, incidunt excepturi labore distinctio quae porro
+        quas sit blanditiis!</div>
+    </div>
+
+    <footer>Copyright 2019 CoffeeBros. All rights reserved.</footer>
+  </div>
+
+  <script type="text/javascript" src="./index.js"></script>
+
+</body>
+
+</html>
