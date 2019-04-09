@@ -11,3 +11,16 @@ const getPlaceDetailsByID = (name,cb) => selectquery(`SELECT * from Places where
 const getPicturesByPlaceID = (placeID,cb) => selectquery(`SELECT * from pictures where place_id=${placeID};`,cb)
 const getMapByPlaceID = (placeID,cb) => selectquery(`SELECT googlemap from address where place_id=${placeID};`,cb)
 const getTopPlaces = (n,cb) => selectquery(`SELECT * from places ORDER BY rating LIMIT ${n} ;`,cb)
+
+module.exports = {
+  getReviews,
+  getPlaces,
+  getAddressByID,
+  getPlacesByName,
+  getLatestReviews,
+  getReviewByPlaceID,
+  getPlaceDetailsByID,
+  getPicturesByPlaceID,
+  getMapByPlaceID,
+  getTopPlaces
+}
