@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "node test.js | tap-spec",
-    "devStart": "nodemon src/server.js"
+    "devStart": "nodemon src/server.js",
+    "testdb" : "NODE_ENV=test node tests/db_test.js | tap-spec"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,8 @@
     "tape": "^4.10.1"
   },
   "dependencies": {
-    "nodemon": "^1.18.11"
+    "env2": "^2.2.2",
+    "nodemon": "^1.18.11",
+    "pg": "^7.9.0"
   }
 }
