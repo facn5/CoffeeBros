@@ -11,6 +11,7 @@ var ratingLocal = document.getElementById('rating');
 var addressLocal = document.getElementById('address');
 var contactLocal = document.getElementById('contact');
 var localPicture = document.getElementById('templocalPic')
+var mapLocal = document.getElementById('mapFrame');
 
 //autocomplete
 // searchField.addEventListener("keydown")
@@ -39,13 +40,30 @@ submitButton.addEventListener("click", function(e) {
     nameLocal.textContent = d.name;
     ratingLocal.textContent = d.rating;
     addressLocal.textContent = d.street + ", " + d.city;
-    // contactLocal.textContent = d[contact];
-    // templocalPic.innerHTML = d[google_mapid];
+    mapLocal.innerHTML = d.googlemap;
   })
 });
 
+
+function sendReview (name, rating, review) {
+  console.log(name, rating, review)
+  //
+  // function postData(url = '', data = {}) {
+  // return fetch("/postReview", {
+  //   method: "POST",
+  //   headers: {'Content-Type': 'application/json'}
+  //   body: JSON.stringify(data)
+  // })
+  // .catch
+  // .then(response => response.json());
+}
+
+
 //add user rating and review to database.
 reviewSubmit.addEventListener("click", function(e) {
+  localName = reviewLegendName.textContent;
+  localRating = userRating.options[userRating.selectedIndex].value;
+  localReview = userReview.value;
   e.preventDefault();
 
 })

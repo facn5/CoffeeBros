@@ -84,7 +84,13 @@ fieldset, .submit {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-.localInfo {
+
+#name {
+  grid-column: span 2;
+  font-size: 1rem;
+}
+
+#address, #rating {
   grid-column: span 1;
 }
 
