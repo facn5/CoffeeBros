@@ -1,16 +1,14 @@
-
-
 var citySelector = document.getElementById('citySelector');
 var searchField = document.getElementById('searchField');
 var submitButton = document.getElementById('submitButton');
-// let ratedChoice = document.getElementsByClassName('ratedGrid');
+
 var reviewSubmit = document.getElementById('reviewSubmit');
 var pickName = document.getElementById('pickName');
+
 var nameLocal = document.getElementById('name');
 var ratingLocal = document.getElementById('rating');
 var addressLocal = document.getElementById('address');
-var contactLocal = document.getElementById('contact');
-var localPicture = document.getElementById('templocalPic')
+
 var mapLocal = document.getElementById('mapFrame');
 
 //autocomplete
@@ -19,7 +17,6 @@ var mapLocal = document.getElementById('mapFrame');
 function getRestaurant (city, place, callback) {
   fetch('/search?place=' + place + '&city=' + city)
   .then(function(response) {
-    // console.log(response);
     return (response.json());
   })
   .then(function(data) {
@@ -58,20 +55,26 @@ function sendReview (name, rating, review) {
   // .then(response => response.json());
 }
 
-
 //add user rating and review to database.
 reviewSubmit.addEventListener("click", function(e) {
   localName = reviewLegendName.textContent;
   localRating = userRating.options[userRating.selectedIndex].value;
   localReview = userReview.value;
   e.preventDefault();
-
+  // sendReview(localName, localRating, localReview)
 })
 
 function getTopRated(num){
   let topratedelements = document.getElementsByClassName('topRated');
   getTopRatedPlaces(num,function(d){
-    console.log(d);
+    // console.log(d);
   })
 }
 getTopRated(4);
+
+getRestaurant ("Nazareth", "Tishreen", function(d){
+  nameLocal.textContent = d.name;
+  ratingLocal.textContent = d.rating;
+  addressLocal.textContent = d.street + ", " + d.city;
+  mapLocal.innerHTML = d.googlemap;
+})
