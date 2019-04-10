@@ -11,6 +11,8 @@ const router = (request, response) => {
     handlers.handlePublic(response,url);
   }else if(url.includes('/search')){
     handlers.handleSearch(response,url);
+  }else if(url.includes('/place')){
+
   }else {
     response.writeHead(404);
     response.end('Not Found')
