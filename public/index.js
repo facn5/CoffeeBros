@@ -2,7 +2,7 @@ var citySelector = document.getElementById('citySelector');
 var searchField = document.getElementById('searchField');
 var submitButton = document.getElementById('submitButton');
 // let ratedChoice = document.getElementsByClassName('ratedGrid');
-var reviewSubmit = document.getElementById('reviewSubmit');
+
 var pickName = document.getElementById('pickName');
 var nameLocal = document.getElementById('name');
 var ratingLocal = document.getElementById('rating');
@@ -10,6 +10,10 @@ var addressLocal = document.getElementById('address');
 var contactLocal = document.getElementById('contact');
 var localPicture = document.getElementById('templocalPic')
 
+var reviewLegendName = document.getElementById('reviewLegendName');
+var userRating = document.getElementById('userRating');
+var userReview = document.getElementById('userReview');
+var reviewSubmit = document.getElementById('reviewSubmit');
 //autocomplete
 // searchField.addEventListener("keydown")
 
@@ -32,18 +36,25 @@ function getRestaurant (city, place, callback) {
 submitButton.addEventListener("click", function(e) {
   e.preventDefault();
   getRestaurant( citySelector.options[citySelector.selectedIndex].value,searchField.value,function(d){
-    console.log(d[0].name);
-    // pickName.textContent = d.name;
+    console.log(d.name);
+    reviewLegendName.textContent = d.name;
     nameLocal.textContent = d.name;
-    ratingLocal.textContent = d.rating;
+    ratingLocal.textContent = "Rating:" + d.rating + " stars";
     addressLocal.textContent = d.street + ", " + d.city;
     // contactLocal.textContent = d[contact];
     // templocalPic.innerHTML = d[google_mapid];
   })
 });
 
+// function sendReview (place, userRating, userReview) {
+//
+// }
+
 //add user rating and review to database.
 reviewSubmit.addEventListener("click", function(e) {
   e.preventDefault();
+  console.log("working")
+  console.log(reviewLegendName.textContent, userRating.options[userRating.selectedIndex].value, userReview.value)
+  // sendReview(place, userRating, userReview)
 
 })
