@@ -59,7 +59,7 @@ reviewSubmit.addEventListener("click", function(e) {
   localRating = userRating.options[userRating.selectedIndex].value;
   localReview = userReview.value;
   e.preventDefault();
-  sendReview(localName, localRating, localReview)
+  // sendReview(localName, localRating, localReview)
 })
 
 function getTopRated(num){
