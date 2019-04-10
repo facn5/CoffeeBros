@@ -3,7 +3,7 @@ const selectquery = require('./selectquery');
 
 const getReviews = (cb) => selectquery('SELECT * from review;', cb)
 const getPlaces = (cb) => selectquery('SELECT * from places;',cb)
-const getAddressByID = (placeid,cb) => selectquery(`SELECT city,street from address where id =${placeid};`, cb)
+const getAddressByID = (placeid,cb) => selectquery(`SELECT * from address where id =${placeid};`, cb)
 const getPlacesByName = (name,cb) => selectquery(`SELECT * from places where name LIKE '%${name}%';`,cb)
 const getLatestReviews = (num,cb) => selectquery(`SELECT * from review ORDER BY id DESC LIMIT ${num};`, cb)
 const getReviewByPlaceID = (placeID,cb) => selectquery(`SELECT * from review where place_id=${placeID};`,cb)

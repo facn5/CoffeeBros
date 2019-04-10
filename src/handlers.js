@@ -46,17 +46,39 @@ const handleSearch = (response ,url) => {
   const query = querystring.parse(urlHTTP.parse(url).query);
   let placename = query.place;
   let placecity = query.city;
-  // console.log("place",placename);
-  // console.log("city",placecity);
-  selectQueries.getPlacesByName(placename,(err,results)=>{
+
+  selectQueries.getPlacesByName(`%${placename}%`,(err,placeresults)=>{
     if(err){
-      // console.log("ERRORROR",err);
       handleServer500(response,err);
     }
-    response.writeHead(200,{'content-type': 'application/json'});
-    // console.log(results);
-    response.end(JSON.stringify(results));
+    // console.log(placeresults);
+    selectQueries.getAddressByID(placeresults[0].address_id,(err,addressresults)=>{
+      if(err){
+        handleServer500(response,err);
+      }
+
+    let results = {
+      'id':placeresults[0].id,
+      'name':placeresults[0].name,
+      'city':addressresults[0].city,
+      'street':addressresults[0].street,
+      'googlemap':addressresults[0].googlemap,
+      'rating':placeresults[0].rating
+    };
+    // results.id = placeresults.id;
+    // results.name = placeresults.name;
+    // results.city = addressresults.city;
+    // results.street = addressresults.street;
+    // results.googlemap = addressresults.googlemap;
+    // results.rating = placeresults.rating;
+    console.log(results);
+      // let googlemap = results[0].google_mapid;
+      response.writeHead(200,{'content-type': 'application/json'});
+      response.end(JSON.stringify(results));
+    });
   })
+
+
 }
 
 
