@@ -7,7 +7,11 @@ const router = (request, response) => {
 
   if (url === '/') {
     handlers.handleHome(request, response);
-  } else {
+  } else if(url.includes('.')){
+    handlers.handlePublic(response,url);
+  }else if(url.includes('/search')){
+    handlers.handleSearch(response,url);
+  }else {
     response.writeHead(404);
     response.end('Not Found')
   }
