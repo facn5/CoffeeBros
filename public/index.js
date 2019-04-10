@@ -1,3 +1,5 @@
+
+
 var citySelector = document.getElementById('citySelector');
 var searchField = document.getElementById('searchField');
 var submitButton = document.getElementById('submitButton');
@@ -47,3 +49,10 @@ reviewSubmit.addEventListener("click", function(e) {
   e.preventDefault();
 
 })
+
+function getTopRated(num){
+  getTopRatedPlaces(num,function(d){
+
+  })
+}
+getTopRated(5);
