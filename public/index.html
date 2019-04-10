@@ -33,15 +33,15 @@
     <fieldset class="grid-element">
       <legend>wet your whistle</legend>
 
-      <select class="" name="city">
+      <select id="citySelector" name="city">
         <option value="Nazareth">Nazareth</option>
         <option value="Haifa">Haifa</option>
         <option value="Tiberias">Tiberias</option>
       </select>
 
-      <input type="text" name="place" value="place" required maxlength="40">
+      <input type="text" id="searchField" name="place" required maxlength="40">
 
-      <input class="submit" type="submit" name="submit" value="find your place">
+      <input class="submit" id="submitButton" type="submit" name="submit" value="find your place">
 
     </fieldset>
 
@@ -78,9 +78,9 @@
       </select>
 
       <div class="userReview">
-        <textarea type="text" name="place" value="place" required rows=10rem cols=30rem></textarea>
+        <textarea type="text" name="place" value="place" required rows=10rem cols=30rem maxlength="500"></textarea>
 
-        <input class="submit" type="submit" name="submit" value="submit your review">
+        <input class="submit" id="reviewSubmit" type="submit" name="submit" value="submit your review">
 
       </div>
     </fieldset>
