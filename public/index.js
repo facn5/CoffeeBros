@@ -34,13 +34,16 @@ submitButton.addEventListener("click", function(e) {
   getRestaurant( citySelector.options[citySelector.selectedIndex].value,searchField.value,function(d){
     console.log(d[0].name);
     // pickName.textContent = d.name;
-    nameLocal.textContent = d[0].name;
-    ratingLocal.textContent = d[0].rating;
-    addressLocal.textContent = d[0].address_id;
+    nameLocal.textContent = d.name;
+    ratingLocal.textContent = d.rating;
+    addressLocal.textContent = d.street + ", " + d.city;
     // contactLocal.textContent = d[contact];
     // templocalPic.innerHTML = d[google_mapid];
   })
 });
 
 //add user rating and review to database.
-// reviewSubmit.addEventListener("click")
+reviewSubmit.addEventListener("click", function(e) {
+  e.preventDefault();
+
+})
