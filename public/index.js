@@ -4,10 +4,10 @@ var submitButton = document.getElementById('submitButton');
 // let ratedChoice = document.getElementsByClassName('ratedGrid');
 var reviewSubmit = document.getElementById('reviewSubmit');
 var pickName = document.getElementById('pickName');
-var name = document.getElementById('');
-var rating = document.getElementById('');
-var address = document.getElementById('');
-var contact = document.getElementById('');
+var nameLocal = document.getElementById('name');
+var ratingLocal = document.getElementById('rating');
+var addressLocal = document.getElementById('address');
+var contactLocal = document.getElementById('contact');
 var localPicture = document.getElementById('templocalPic')
 
 //autocomplete
@@ -20,7 +20,7 @@ function getRestaurant (city, place, callback) {
     return (response.json());
   })
   .then(function(data) {
-    // console.log(data);
+    console.log(data);
     return callback(data);
   })
   .catch(function(error) {
@@ -32,12 +32,12 @@ function getRestaurant (city, place, callback) {
 submitButton.addEventListener("click", function(e) {
   e.preventDefault();
   getRestaurant( citySelector.options[citySelector.selectedIndex].value,searchField.value,function(d){
-    // console.log(d);
-    // pickName.textContent = d[name];
-    // name.textContent = d[name];
-    // rating.textContent = d[rating];
-    // address.textContent = d[address_id];
-    // contact.textContent = d[contact];
+    console.log(d[0].name);
+    // pickName.textContent = d.name;
+    nameLocal.textContent = d[0].name;
+    ratingLocal.textContent = d[0].rating;
+    addressLocal.textContent = d[0].address_id;
+    // contactLocal.textContent = d[contact];
     // templocalPic.innerHTML = d[google_mapid];
   })
 });
