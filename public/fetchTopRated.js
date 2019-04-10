@@ -4,7 +4,7 @@ function getTopRatedPlaces(num, cb) {
     .then(function(response) {
       return response.json;
     })
-    .then(funciton(data) {
+    .then(function(data) {
       cb(data);
     })
     .catch(function(error) {
