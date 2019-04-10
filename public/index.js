@@ -14,18 +14,14 @@ var localPicture = document.getElementById('templocalPic')
 // searchField.addEventListener("keydown")
 
 function getRestaurant (city, place, callback) {
-  // console.log("in function");
-  // console.log(city);
-  // console.log(place);
-  fetch('/Search?place=' + place + '&city=' + city)
+  fetch('/search?place=' + place + '&city=' + city)
   .then(function(response) {
-    return response.json;
+    // console.log(response);
+    return (response.json());
   })
   .then(function(data) {
-    console.log(data);
-    // console.log(place);
-    // console.log(city);
-    return(callback(data))
+    // console.log(data);
+    return callback(data);
   })
   .catch(function(error) {
     return(error);
@@ -35,14 +31,16 @@ function getRestaurant (city, place, callback) {
 //send name.  search for restaurant in database, populate #localPick div with it, and scroll there
 submitButton.addEventListener("click", function(e) {
   e.preventDefault();
-  getRestaurant(searchField.value, citySelector.options[citySelector.selectedIndex].value);
-  pickName.textContent = data[name];
-  name.textContent = data[name];
-  rating.textContent = data[rating];
-  address.textContent = data[address];
-  contact.textContent = data[contact];
-  templocalPic.src = data[google_map];
-})
+  getRestaurant( citySelector.options[citySelector.selectedIndex].value,searchField.value,function(d){
+    // console.log(d);
+    // pickName.textContent = d[name];
+    // name.textContent = d[name];
+    // rating.textContent = d[rating];
+    // address.textContent = d[address_id];
+    // contact.textContent = d[contact];
+    // templocalPic.innerHTML = d[google_mapid];
+  })
+});
 
 //add user rating and review to database.
 // reviewSubmit.addEventListener("click")

@@ -46,13 +46,15 @@ const handleSearch = (response ,url) => {
   const query = querystring.parse(urlHTTP.parse(url).query);
   let placename = query.place;
   let placecity = query.city;
-  selectQueries.getPlacesByName(`%${placename}%`,(err,results)=>{
+  // console.log("place",placename);
+  // console.log("city",placecity);
+  selectQueries.getPlacesByName(placename,(err,results)=>{
     if(err){
-      console.log("ERRORROR",err);
+      // console.log("ERRORROR",err);
       handleServer500(response,err);
     }
     response.writeHead(200,{'content-type': 'application/json'});
-    console.log(results);
+    // console.log(results);
     response.end(JSON.stringify(results));
   })
 }
