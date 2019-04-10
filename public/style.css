@@ -42,7 +42,7 @@ select, input {
   margin: 0 auto;
 }
 
-header, fieldset, .submit, .ratedContainer, .reviewsContainer, .localPick, footer {
+header, fieldset, .submit, .ratedContainer, .reviewsContainer, #localPick, footer {
   grid-column: span 2;
 }
 
@@ -75,7 +75,7 @@ fieldset, .submit {
   margin: .3rem;
 }
 
-.localPick {
+#localPick {
   border: .1rem solid #0e3b43;
   margin: .5rem;
 }
