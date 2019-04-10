@@ -13,8 +13,9 @@ CREATE TABLE IF NOT EXISTS address (
 
   INSERT INTO address (city,street,googlemap) VALUES
   ('Nazareth','Kekar Ha'' Ma''ain','<div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=tishren%20israel&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a  href="https://www.emojilib.com">emojilib.com</a></div><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}.gmap_canvas{overflow:hidden;background:none!important;height:500px;width:600px;}</style></div>'),
-  ('Nazareth','Kekar Ha'' Ma''ain','<div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=tishren%20israel&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a  href="https://www.emojilib.com">emojilib.com</a></div><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}.gmap_canvas{overflow:hidden;background:none!important;height:500px;width:600px;}</style></div>');
-CREATE TABLE IF NOT EXISTS places (
+  ('Haifa','HaSolel Bonneh','<div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Giraffe%20haifa&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.emojilib.com">emojilib.com</a></div><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div>');
+
+  CREATE TABLE IF NOT EXISTS places (
   id SERIAL PRIMARY KEY,
   name VARCHAR(100) NOT NULL,
   rating INTEGER NOT NULL,
