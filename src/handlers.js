@@ -15,4 +15,23 @@ const handleHome = (request, response, url) => {
   })
 }
 
-module.exports = {handleHome};
+const handlePublic = (response, url) => {
+  let filePath = path.join(__dirname, "..", url);
+  let extension = url.split('.')[1];
+  const extensionType ={
+    html: 'text/html',
+    css: 'text/css',
+    js: 'application/javascript',
+    ico: 'image/x-icon'
+  }
+
+  fs.readFile(filePath, (error, file) => {
+    if (error) {
+      response.writeHead(500, {'Content-Type': 'text/html'})
+      response.end('500 server error');
+    } else response.writeHead(200, {'Content-Type': extensionType[extension]})
+    respond.end(file);
+  })
+}
+
+module.exports = {handleHome, handlePublic};
