@@ -10,7 +10,7 @@ const getReviewByPlaceID = (placeID,cb) => selectquery(`SELECT * from review whe
 const getPlaceDetailsByID = (placeID,cb) => selectquery(`SELECT * from places where id=${placeID};`,cb)
 const getPicturesByPlaceID = (placeID,cb) => selectquery(`SELECT * from pictures where place_id=${placeID};`,cb)
 const getMapByPlaceID = (placeID,cb) => selectquery(`SELECT googlemap from address where id=${placeID};`,cb)
-const getTopPlaces = (n,cb) => selectquery(`SELECT * from places ORDER BY rating LIMIT ${n} ;`,cb)
+const getTopPlaces = (n,cb) => selectquery(`SELECT * from places ORDER BY rating DESC LIMIT ${n} ;`,cb)
 
 module.exports = {
   getReviews,
