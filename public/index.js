@@ -23,7 +23,7 @@ function getRestaurant (city, place, callback) {
     return (response.json());
   })
   .then(function(data) {
-    console.log(data);
+    // console.log(data);
     return callback(data);
   })
   .catch(function(error) {
@@ -35,7 +35,7 @@ function getRestaurant (city, place, callback) {
 submitButton.addEventListener("click", function(e) {
   e.preventDefault();
   getRestaurant( citySelector.options[citySelector.selectedIndex].value,searchField.value,function(d){
-    console.log(d[0].name);
+    // console.log(d[0].name);
     // pickName.textContent = d.name;
     nameLocal.textContent = d.name;
     ratingLocal.textContent = d.rating;
@@ -46,7 +46,7 @@ submitButton.addEventListener("click", function(e) {
 
 
 function sendReview (name, rating, review) {
-  console.log(name, rating, review)
+  // console.log(name, rating, review)
   //
   // function postData(url = '', data = {}) {
   // return fetch("/postReview", {
