@@ -1,10 +1,10 @@
-{
+  {
   "name": "coffeebros",
   "version": "1.0.0",
   "description": "Food and drink recommendations near Nazareth",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js | tap-spec",
+    "test": "NODE_ENV=test node tests/db_tests.js | tap-spec",
     "devStart": "nodemon src/server.js",
     "testdb": "NODE_ENV=test node tests/db_tests.js | tap-spec"
   },
