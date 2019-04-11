@@ -1,6 +1,6 @@
 # CoffeeBros
 
-*CoffeeBros* is an app for finding recommended places to eat and drink in several cities in Israel.
+*CoffeeBros* is an app for finding recommended places to work or chill in several cities in Israel.
 
 <img src="https://user-images.githubusercontent.com/32282170/55936662-99878000-5c3f-11e9-830a-6a2c09753b87.png" alt="alt text" width="300px" height="auto">
 
@@ -16,5 +16,8 @@ The User is presented with top 4 rated businesses on the landing page, and a sel
 Database testing was done with tape, and nyc.
 
 Stretch goals include:
-* Adding filters for amenities such as alcohol service, smoking, and others.
+* Adding filters for social amenities:
+ * to work (wi-fi, power, tables)
+ * to chill (alcohol, vibe)
+ * to smoke
 
