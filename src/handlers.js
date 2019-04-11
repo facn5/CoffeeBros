@@ -83,19 +83,25 @@ const handleSearch = (response, url) => {
   })
 }
 
-
 const handlePost = (request, response, url) => {
-  console.log("hello");
-  console.log(request.body);
-  let args = (request.body);
-
-  insertQuery.addReview(args, (error, results) => {
-    if (error) {
-      handleServer500(response, error);
-    } else {
-      response.writeHead(200, {"Content-Type": "text/html"});
-      response.end();
-    }
+  // console.log("hello");
+  // console.log(request.body.text);
+  // let args = (JSON.parse(request.body));
+  let data = '';
+  request.on('data', (chunk) => {
+    data += chunk;
+  })
+  request.on('end', () => {
+    console.log(data);
+    let args= data;
+    insertQuery.addReview(args, (error, results) => {
+      if (error) {
+        handleServer500(response, error);
+      } else {
+        response.writeHead(200, {"Content-Type": "application/json"});
+        response.end();
+      }
+    })
   })
 }
 

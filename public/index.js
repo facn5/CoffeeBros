@@ -47,15 +47,17 @@ submitButton.addEventListener("click", function(e) {
 function addReview(name, rating, review) {
   console.log(name, rating, review)
   let data = [name, review, rating];
+  console.log(JSON.stringify(data));
 
   fetch("/postreview", {
       method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: data
+      headers: {'Content-Type': 'application/json'},
+      body: {data}
     })
-    .catch(function (err) {
+    .then(function (response) {
+      return response.json();
+    })
+    .catch(function (error) {
       return error;
     })
 
