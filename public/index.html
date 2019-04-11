@@ -26,7 +26,6 @@
 
     <header class="grid-element">
       <img id="logoPic" src="https://user-images.githubusercontent.com/32282170/55808583-08a08f80-5aed-11e9-9aa9-85f6255f8def.png" alt="CoffeeBros logo">
-      <!-- <h1>CoffeeBros</h1> -->
     </header>
 
     <!-- input to search for places -->
@@ -69,7 +68,7 @@
     </div>
 
     <fieldset class="userReviewContainer grid-element">
-      <legend>Add your own review of <span id="reviewLegendName"></span></legend>Rating:
+      <legend>Add your own review of <span id="legendName"></span></legend>Rating:
 
       <select id="userRating" class="rating" name="rating" required>
         <option value="5">5</option>
@@ -81,10 +80,9 @@
 
       <div class="userReview">
         <textarea id="userReview" type="text" name="place" value="place" required rows=10rem cols=30rem maxlength="500"></textarea>
-
         <input class="submit" id="reviewSubmit" type="submit" name="submit" value="submit your review">
-
       </div>
+
     </fieldset>
 
     <div class="reviewsContainer">

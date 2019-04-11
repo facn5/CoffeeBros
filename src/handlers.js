@@ -3,7 +3,7 @@ const path = require('path');
 const urlHTTP = require('url');
 const querystring = require('querystring');
 const selectQueries = require('../database/queries/readdata.js');
-
+const insertQuery = require('../database/queries/postdata.js');
 
 const handleServer500 = (res, err) => {
   res.writeHead(500, {"content-Type":'text/html'})
@@ -77,13 +77,26 @@ const handleSearch = (response ,url) => {
       response.end(JSON.stringify(results));
     });
   })
-
-
 }
 
+const handlePost = (request, response, url) => {
+  console.log("hello");
+  console.log(request.body);
+  let args = (request.body);
+
+  insertQuery.addReview(args, (error, results) => {
+    if (error) {
+      handleServer500(response, error);
+    } else {
+      response.writeHead(200, {"Content-Type": "text/html"});
+      response.end();
+    }
+  })
+}
 
 module.exports = {
   handleHome,
+  handlePost,
   handlePublic,
   handleSearch
 };
