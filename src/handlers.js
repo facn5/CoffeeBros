@@ -66,15 +66,15 @@ const handleSearch = (response, url) => {
       if (err) {
         handleServer500(response, err);
       }
-    selectQueries.getPicturesByPlaceID(placeresults[0].address_id,(err,pictures)=>{
+
       let results = {
         'id':placeresults[0].id,
         'name':placeresults[0].name,
         'city':addressresults[0].city,
         'street':addressresults[0].street,
         'googlemap':addressresults[0].googlemap,
-        'rating':placeresults[0].rating,
-        'picture':pictures[0].pictureurl
+        'rating':placeresults[0].rating
+
       };
       // results.id = placeresults.id;
       // results.name = placeresults.name;
@@ -86,7 +86,7 @@ const handleSearch = (response, url) => {
         // let googlemap = results[0].google_mapid;
         response.writeHead(200,{'content-type': 'application/json'});
         response.end(JSON.stringify(results));
-    })
+
     });
   })
 }
@@ -107,28 +107,34 @@ const handleTopRated = (response, url) => {
           }
           // console.log("curent ",current);
           // console.log("acc",acc);
+          selectQueries.getPicturesByPlaceID(placeresults[0].address_id,(err,pictures)=>{
+            // console.log(pictures);
           let obj = {
             'id': current.id,
             'name': current.name,
             'city': addressresults[0].city,
             'street': addressresults[0].street,
             'googlemap': addressresults[0].googlemap,
-            'rating': current.rating
+            'rating': current.rating,
+            'picture':pictures[0].pictureurl
           }
-          acc.push(obj);
+          console.log(acc);
+          // console.log(obj);
+          acc.concat(obj);
         });
         return acc;
       },
       [])
       setTimeout(()=>{
+        // console.log(arr);
         response.writeHead(200, {
           'content-type': 'application/json'
         });
         // console.log(JSON.stringify(arr));
         response.end(JSON.stringify(arr));
-      },700);
+      },2000);
   })
-
+})
 }
 
 module.exports = {
