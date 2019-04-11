@@ -52,10 +52,13 @@ function addReview(name, rating, review) {
   fetch("/postreview", {
       method: "POST",
       headers: {'Content-Type': 'application/json'},
-      body: {data}
+      body: JSON.stringify({mydata : data})
     })
     .then(function (response) {
       return response.json();
+    })
+    .then(function(data){
+      console.log(data);
     })
     .catch(function (error) {
       return error;
