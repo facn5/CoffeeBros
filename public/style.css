@@ -50,39 +50,20 @@ fieldset, .submit {
   margin: .3rem;
 }
 
-.reviewsContainer {
+.reviewsContainer, .reviews, .ratedContainer, #localPick {
   border: .1rem solid #0e3b43;
   margin: .5rem;
 }
 
-.reviews  {
-  border: .1rem solid #0e3b43;
-  margin: .3rem;
-}
-.ratedGrid {
+.ratedGrid, .localGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-}
-
-.ratedContainer {
-  border: .1rem solid #0e3b43;
-  margin: .5rem;
 }
 
 .topRated {
   grid-column: span 1;
   border: .1rem solid #0e3b43;
   margin: .3rem;
-}
-
-#localPick {
-  border: .1rem solid #0e3b43;
-  margin: .5rem;
-}
-
-.localGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
 }
 
 .localInfo {
