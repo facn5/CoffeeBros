@@ -56,25 +56,27 @@ const handleSearch = (response ,url) => {
       if(err){
         handleServer500(response,err);
       }
-
-    let results = {
-      'id':placeresults[0].id,
-      'name':placeresults[0].name,
-      'city':addressresults[0].city,
-      'street':addressresults[0].street,
-      'googlemap':addressresults[0].googlemap,
-      'rating':placeresults[0].rating
-    };
-    // results.id = placeresults.id;
-    // results.name = placeresults.name;
-    // results.city = addressresults.city;
-    // results.street = addressresults.street;
-    // results.googlemap = addressresults.googlemap;
-    // results.rating = placeresults.rating;
-    console.log(results);
-      // let googlemap = results[0].google_mapid;
-      response.writeHead(200,{'content-type': 'application/json'});
-      response.end(JSON.stringify(results));
+    selectQueries.getPicturesByPlaceID(placeresults[0].address_id,(err,pictures)=>{
+      let results = {
+        'id':placeresults[0].id,
+        'name':placeresults[0].name,
+        'city':addressresults[0].city,
+        'street':addressresults[0].street,
+        'googlemap':addressresults[0].googlemap,
+        'rating':placeresults[0].rating,
+        'picture':pictures[0].pictureurl
+      };
+      // results.id = placeresults.id;
+      // results.name = placeresults.name;
+      // results.city = addressresults.city;
+      // results.street = addressresults.street;
+      // results.googlemap = addressresults.googlemap;
+      // results.rating = placeresults.rating;
+      console.log(results);
+        // let googlemap = results[0].google_mapid;
+        response.writeHead(200,{'content-type': 'application/json'});
+        response.end(JSON.stringify(results));
+    })
     });
   })
 

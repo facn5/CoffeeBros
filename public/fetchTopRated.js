@@ -5,6 +5,7 @@ function getTopRatedPlaces(num, cb) {
       return response.json;
     })
     .then(function(data) {
+      // console.log(data);
       cb(data);
     })
     .catch(function(error) {

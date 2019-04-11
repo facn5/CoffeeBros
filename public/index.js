@@ -65,7 +65,9 @@ reviewSubmit.addEventListener("click", function(e) {
 function getTopRated(num){
   let topratedelements = document.getElementsByClassName('topRated');
   getTopRatedPlaces(num,function(d){
-    // console.log(d);
+    topratedelements.map(function (currentdiv,i){
+      return currentdiv.firstChild.src = './assets/'+d[i].picture;
+    })
   })
 }
 getTopRated(4);
