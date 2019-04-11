@@ -31,7 +31,9 @@ function getRestaurant (city, place, callback) {
 //send name.  search for restaurant in database, populate #localPick div with it, and scroll there
 submitButton.addEventListener("click", function(e) {
   e.preventDefault();
-  getRestaurant (citySelector.options[citySelector.selectedIndex].value, searchField.value, function(d){
+  getRestaurant( citySelector.options[citySelector.selectedIndex].value,searchField.value,function(d){
+    // console.log(d[0].name);
+    // pickName.textContent = d.name;
     nameLocal.textContent = d.name;
     ratingLocal.textContent = d.rating;
     addressLocal.textContent = d.street + ", " + d.city;
@@ -41,7 +43,7 @@ submitButton.addEventListener("click", function(e) {
 
 
 function sendReview (name, rating, review) {
-  console.log(name, rating, review)
+  // console.log(name, rating, review)
   //
   // function postData(url = '', data = {}) {
   // return fetch("/postReview", {
