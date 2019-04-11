@@ -13,7 +13,9 @@ const router = (request, response) => {
     handlers.handleSearch(response,url);
   }else if(url.includes('/toprated')){
     handlers.handleTopRated(response,url)
-  }else {
+  }else if (url.includes('/postreview')){
+    handlers.handlePost(request, response, url)
+  } else {
     response.writeHead(404);
     response.end('Not Found')
   }

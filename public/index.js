@@ -5,6 +5,7 @@ var submitButton = document.getElementById('submitButton');
 var reviewSubmit = document.getElementById('reviewSubmit');
 var pickName = document.getElementById('pickName');
 
+var legendName = document.getElementById('legendName')
 var nameLocal = document.getElementById('name');
 var ratingLocal = document.getElementById('rating');
 var addressLocal = document.getElementById('address');
@@ -14,54 +15,62 @@ var mapLocal = document.getElementById('mapFrame');
 //autocomplete
 // searchField.addEventListener("keydown")
 
-function getRestaurant (city, place, callback) {
+function getRestaurant(city, place, callback) {
   fetch('/search?place=' + place + '&city=' + city)
-  .then(function(response) {
-    return (response.json());
-  })
-  .then(function(data) {
-    // console.log(data);
-    return callback(data);
-  })
-  .catch(function(error) {
-    return(error);
-  })
+    .then(function(response) {
+      return (response.json());
+    })
+    .then(function(data) {
+      // console.log(data);
+      return callback(data);
+    })
+    .catch(function(error) {
+      return (error);
+    })
 }
 
 //send name.  search for restaurant in database, populate #localPick div with it, and scroll there
 submitButton.addEventListener("click", function(e) {
   e.preventDefault();
-  getRestaurant( citySelector.options[citySelector.selectedIndex].value,searchField.value,function(d){
-    // console.log(d[0].name);
-    // pickName.textContent = d.name;
+
+  getRestaurant(citySelector.options[citySelector.selectedIndex].value, searchField.value, function(d) {
+    legendName.textContent = d.name;
+
     nameLocal.textContent = d.name;
-    ratingLocal.textContent = d.rating;
+    ratingLocal.textContent = d.rating + " stars";
     addressLocal.textContent = d.street + ", " + d.city;
     mapLocal.innerHTML = d.googlemap;
   })
 });
 
 
-function sendReview (name, rating, review) {
-  // console.log(name, rating, review)
-  //
-  // function postData(url = '', data = {}) {
-  // return fetch("/postReview", {
-  //   method: "POST",
-  //   headers: {'Content-Type': 'application/json'}
-  //   body: JSON.stringify(data)
-  // })
-  // .catch
-  // .then(response => response.json());
+function addReview(name, rating, review) {
+  console.log(name, rating, review)
+  let data = [name, review, rating];
+  console.log(JSON.stringify(data));
+
+  fetch("/postreview", {
+      method: "POST",
+      headers: {'Content-Type': 'application/json'},
+      body: {data}
+    })
+    .then(function (response) {
+      return response.json();
+    })
+    .catch(function (error) {
+      return error;
+    })
+
 }
 
 //add user rating and review to database.
 reviewSubmit.addEventListener("click", function(e) {
-  localName = reviewLegendName.textContent;
+  localName = legendName.textContent;
   localRating = userRating.options[userRating.selectedIndex].value;
   localReview = userReview.value;
   e.preventDefault();
-  // sendReview(localName, localRating, localReview)
+
+  addReview(localName, localRating, localReview)
 })
 
 function getTopRated(num){
@@ -76,9 +85,10 @@ function getTopRated(num){
 }
 getTopRated(4);
 
-getRestaurant ("Nazareth", "Tishreen", function(d){
+getRestaurant("Nazareth", "Tishreen", function(d) {
+  legendName.textContent = d.name;
   nameLocal.textContent = d.name;
-  ratingLocal.textContent = d.rating;
+  ratingLocal.textContent = d.rating + " stars";
   addressLocal.textContent = d.street + ", " + d.city;
   mapLocal.innerHTML = d.googlemap;
 })

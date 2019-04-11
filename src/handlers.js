@@ -3,7 +3,7 @@ const path = require('path');
 const urlHTTP = require('url');
 const querystring = require('querystring');
 const selectQueries = require('../database/queries/readdata.js');
-
+const insertQuery = require('../database/queries/postdata.js');
 
 const handleServer500 = (res, err) => {
   res.writeHead(500, {
@@ -91,6 +91,29 @@ const handleSearch = (response, url) => {
   })
 }
 
+const handlePost = (request, response, url) => {
+  // console.log("hello");
+  // console.log(request.body.text);
+  // let args = (JSON.parse(request.body));
+  let data = '';
+  request.on('data', (chunk) => {
+    data += chunk;
+  })
+  request.on('end', () => {
+    console.log(data);
+    let args= data;
+    insertQuery.addReview(args, (error, results) => {
+      if (error) {
+        handleServer500(response, error);
+      } else {
+        response.writeHead(200, {"Content-Type": "application/json"});
+        response.end();
+      }
+    })
+  })
+}
+
+
 const handleTopRated = (response, url) => {
   const query = querystring.parse(urlHTTP.parse(url).query);
   let num = query.limit;
@@ -137,8 +160,10 @@ const handleTopRated = (response, url) => {
 })
 }
 
+
 module.exports = {
   handleHome,
+  handlePost,
   handlePublic,
   handleSearch,
   handleTopRated
