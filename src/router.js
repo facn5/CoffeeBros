@@ -13,6 +13,7 @@ const router = (request, response) => {
     handlers.handleSearch(response,url);
   }else if(url.includes('/toprated')){
     handlers.handleTopRated(response,url)
+
   }else if (url.includes('/postreview')){
     handlers.handlePost(request, response, url)
   } else {

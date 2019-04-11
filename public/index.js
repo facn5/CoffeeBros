@@ -32,14 +32,17 @@ function getRestaurant(city, place, callback) {
 //send name.  search for restaurant in database, populate #localPick div with it, and scroll there
 submitButton.addEventListener("click", function(e) {
   e.preventDefault();
+
   getRestaurant(citySelector.options[citySelector.selectedIndex].value, searchField.value, function(d) {
     legendName.textContent = d.name;
+
     nameLocal.textContent = d.name;
     ratingLocal.textContent = d.rating + " stars";
     addressLocal.textContent = d.street + ", " + d.city;
     mapLocal.innerHTML = d.googlemap;
   })
 });
+
 
 function addReview(name, rating, review) {
   console.log(name, rating, review)
@@ -55,6 +58,7 @@ function addReview(name, rating, review) {
     .catch(function (err) {
       return error;
     })
+
 }
 
 //add user rating and review to database.
